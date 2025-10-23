@@ -1,0 +1,290 @@
+/* Landing Page Main Container */
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background Container with Parallax */
+.backgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Desktop Background */
+.desktopBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.landingImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* Mobile Background Container */
+.mobileBackgroundContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.mobileBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobileMountains {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  will-change: transform;
+}
+
+.mobileCloud {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 120%;
+  height: auto;
+  opacity: 0.8;
+  will-change: transform;
+}
+
+/* Logo Container */
+.logoContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: fadeIn 1s ease-in-out 0.5s both;
+}
+
+.logo {
+  width: clamp(250px, 40vw, 600px);
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(242, 221, 124, 0.4));
+}
+
+/* Scroller Wrapper */
+.scrollerWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 200vh;
+}
+
+.scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.landingContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100vh;
+}
+
+/* Register Button Container */
+.registerBtnContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  z-index: 10;
+}
+
+.registerBtn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 10px 30px rgba(214, 155, 101, 0.5));
+}
+
+.registerBtn:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 15px 40px rgba(214, 155, 101, 0.7));
+}
+
+.registerBtn img {
+  width: clamp(200px, 30vw, 400px);
+  height: auto;
+}
+
+.mobileRegisterBtn {
+  display: none;
+}
+
+.registerBtnText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-japan-ramen), sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+/* Foreground Container with Tree */
+.foregroundContainer {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}
+
+.treeContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.treeDesktop {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.treeMob {
+  display: none;
+}
+
+.treeExtender {
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+}
+
+/* Bottom Container for About Us */
+.bottomContainer {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  background: linear-gradient(to bottom, transparent, #000);
+  z-index: 4;
+}
+
+.bottomOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/paper-texture.webp') repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.aboutUsContainer {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem;
+  z-index: 5;
+}
+
+.aboutUsWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desktopBackground {
+    display: none;
+  }
+
+  .mobileBackgroundContainer {
+    display: block;
+  }
+
+  .logoContainer {
+    top: 40%;
+  }
+
+  .logo {
+    width: clamp(200px, 60vw, 400px);
+  }
+
+  .registerBtn img {
+    display: none;
+  }
+
+  .mobileRegisterBtn {
+    display: block !important;
+    width: clamp(180px, 50vw, 300px);
+  }
+
+  .registerBtnText {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .treeDesktop {
+    display: none;
+  }
+
+  .treeMob {
+    display: block;
+  }
+
+  .aboutUsContainer {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .landingContainer {
+    padding-top: 80vh;
+  }
+
+  .registerBtnContainer {
+    padding: 2rem 0;
+  }
+
+  .treeExtender {
+    height: 30vh;
+  }
+}
