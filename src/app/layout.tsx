@@ -108,8 +108,8 @@ export default function RootLayout({
       </head>
       <body className={`${japanRamen.variable} antialiased`}>
         {/* Portal roots for modals and backdrops */}
-        <div id="modal-root"></div>
-        <div id="backdrop-root"></div>
+        {/* <div id="modal-root"></div> */}
+        {/* <div id="backdrop-root"></div> */}
         <div id="root">{children}</div>
       </body>
     </html>

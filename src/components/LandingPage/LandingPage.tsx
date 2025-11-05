@@ -76,7 +76,7 @@ export default function LandingPage() {
         <div className={styles.scroller}>
           <div className={styles.landingContainer}>
             {/* Register Button */}
-            <div className={styles.registerBtnContainer}>
+            {/* <div className={styles.registerBtnContainer}>
               <a href="/register" className={styles.registerBtn}>
                 <img
                   src="/svgs/landing/registerBtn.svg"
@@ -90,7 +90,7 @@ export default function LandingPage() {
                 />
                 <span className={styles.registerBtnText}>Register Now</span>
               </a>
-            </div>
+            </div> */}
 
             {/* Foreground Container with Tree */}
             <div className={styles.foregroundContainer}>
@@ -114,7 +114,7 @@ export default function LandingPage() {
                 </div>
 
                 {/* Tree Extender for Scroll */}
-                <div className={styles.treeExtender}></div>
+                {/* <div className={styles.treeExtender}></div> */}
               </div>
             </div>
           </div>

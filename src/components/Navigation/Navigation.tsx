@@ -31,7 +31,7 @@ export default function Navigation() {
           aria-label="Open menu"
         >
           <img
-            src="/svgs/landing/moon1.svg"
+            src="/svgs/landing/moonHam.svg"
             alt="Menu"
             className={styles.moon}
           />
