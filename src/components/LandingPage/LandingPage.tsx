@@ -100,8 +100,9 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* About Us Section */}
-      <div className={styles.bottomContainer}>
+      {/* Bottom Container for About Us Section */}
+            {/* Bottom Container for About Us Section */}
+            <div className={styles.bottomContainer}>
         <div className={styles.bottomOverlay}></div>
         <div className={styles.aboutUsContainer}>
           <div className={styles.aboutUsWrapper}>
@@ -123,18 +124,118 @@ export default function LandingPage() {
                 maxWidth: "800px",
                 margin: "2rem auto",
                 lineHeight: "1.8",
-                color: "#e0e0e0",
               }}
             >
-              OASIS is the annual cultural festival of BITS Pilani, Pilani
-              Campus. It is a 3-4 day festival held in the month of
-              October-November. This year marks the 53rd edition of OASIS,
-              celebrating the theme &quot;Whispers of Edo&quot; - a journey
-              through traditional Japanese culture.
+              OASIS is the annual cultural festival of BITS Pilani, Pilani Campus.
+              It is a 3-4 day festival held in the month of October-November.
+              This year marks the 53rd edition of OASIS, celebrating the theme
+              &quot;Whispers of Edo&quot; - a journey through traditional Japanese culture.
             </p>
           </div>
         </div>
       </div>
+
+      {/* Sponsors Section */}
+      <section className={styles.sponsorsSection}>
+  <h2 className={styles.sectionTitle}>ASSOCIATIONS</h2>
+  <div className={styles.sponsorsGrid}>
+
+    <div className={styles.sponsorItem}>
+      <div className={styles.sponsorLogoContainer}>
+        <img src="/images/sponsors/s1.png" alt="HP" />
+      </div>
+      <p className={styles.sponsorTitle}>Platinum Sponsor</p>
+    </div>
+
+    <div className={styles.sponsorItem}>
+      <div className={styles.sponsorLogoContainer}>
+        <img src="/images/sponsors/s2.png" alt="Khadi India" />
+      </div>
+      <p className={styles.sponsorTitle}>Sustainability Partner</p>
+    </div>
+
+    <div className={styles.sponsorItem}>
+      <div className={styles.sponsorLogoContainer}>
+        <img src="/images/sponsors/s3.png" alt="Trends" />
+      </div>
+      <p className={styles.sponsorTitle}>Event Partner</p>
+    </div>
+
+    <div className={styles.sponsorItem}>
+      <div className={styles.sponsorLogoContainer}>
+        <img src="/images/sponsors/s4.png" alt="Bank of India" />
+      </div>
+      <p className={styles.sponsorTitle}>Banking Partner</p>
+    </div>
+
+  </div>
+</section>
+
+
+{/* Speakers Section */}
+<section className={styles.speakersSection}>
+  <h2 className={styles.sectionTitle}>PAST SPEAKERS OF ENVISION</h2>
+  <div className={styles.speakersGrid}>
+
+    {/* Speaker Card */}
+    <div className={styles.flipCard}>
+      <div className={styles.flipInner}>
+        {/* Front */}
+        <div className={styles.flipFront}>
+          <img src="/images/speakers/sp1.png" alt="Rahul Gehani" />
+          <h3>Rahul Gehani</h3>
+          <p>Partner, Everest Group</p>
+        </div>
+        {/* Back */}
+        <div className={styles.flipBack}>
+          <h3>Rahul Gehani</h3>
+          <p>Partner, Everest Group</p>
+          <a href="#" target="_blank">
+            <img src="/icons/linkedin.svg" alt="LinkedIn" className={styles.socialIcon} />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Repeat Speaker Cards */}
+    <div className={styles.flipCard}>
+      <div className={styles.flipInner}>
+        <div className={styles.flipFront}>
+          <img src="/images/speakers/sp2.png" alt="K Radhakrishnan" />
+          <h3>K Radhakrishnan</h3>
+          <p>Former Chairman, ISRO</p>
+        </div>
+        <div className={styles.flipBack}>
+          <h3>K Radhakrishnan</h3>
+          <p>Former Chairman, ISRO</p>
+          <a href="#" target="_blank">
+            <img src="/icons/linkedin.svg" alt="LinkedIn" className={styles.socialIcon} />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className={styles.flipCard}>
+      <div className={styles.flipInner}>
+        <div className={styles.flipFront}>
+          <img src="/images/speakers/sp3.png" alt="Rana Kapoor" />
+          <h3>Rana Kapoor</h3>
+          <p>Former CEO & MD, Yes Bank</p>
+        </div>
+        <div className={styles.flipBack}>
+          <h3>Rana Kapoor</h3>
+          <p>Former CEO & MD, Yes Bank</p>
+          <a href="#" target="_blank">
+            <img src="/icons/linkedin.svg" alt="LinkedIn" className={styles.socialIcon} />
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
     </div>
   );
 }
