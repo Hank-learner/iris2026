@@ -19,69 +19,55 @@ export default function LandingPage() {
 
   return (
     <div className={styles.wrapper}>
-      {/* Background Container with Parallax */}
+      {/* Fixed Parallax Background */}
       <div className={styles.backgroundContainer}>
         {/* Desktop Background */}
         <div className={styles.desktopBackground}>
           <img
-            src="/images/landing/background1.png"
+            src="/images/landing/imagebackground.png"
             alt="Edo Mountains"
             className={styles.landingImage}
-            style={{
-              transform: `translateY(${scrollY * 0.5}px)`,
-            }}
+            style={{ transform: `translateY(${scrollY * 0.5}px)` }}
           />
         </div>
 
         {/* Mobile Background */}
         <div className={styles.mobileBackgroundContainer}>
           <img
-            src="/svgs/landing/mobileBackground.svg"
+            src="/svgs/svgs/landing/mobileBackground.svg"
             alt="Background"
             className={styles.mobileBackground}
           />
           <img
-            src="/images/landing/mobileMountains.png"
+            src="/images/landing/backgroundimage_mobile.jpeg"
             alt="Mountains"
             className={styles.mobileMountains}
-            style={{
-              transform: `translateY(${scrollY * 0.3}px)`,
-            }}
-          />
-          <img
-            src="/images/landing/mobileCloud.png"
-            alt="Clouds"
-            className={styles.mobileCloud}
-            style={{
-              transform: `translateX(${scrollY * 0.2}px)`,
-            }}
+            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
           />
         </div>
 
-        {/* Logo Container */}
+        {/* Logo + Timer - Position Preserved */}
         <div className={styles.logoContainer}>
           <img
             src="/images/landing/oasisLogo.png"
             alt="OASIS 2025"
             className={styles.logo}
           />
+          <CountdownTimer />
         </div>
       </div>
 
-      {/* Countdown Timer */}
-      <CountdownTimer />
-
-      {/* Scroller for Content */}
+      {/* Scrollable Content */}
       <div className={styles.scrollerWrapper}>
         <div className={styles.scroller}>
           <div className={styles.landingContainer}>
-            {/* Register Button */}
+            {/* Optional Register Button (uncomment if needed) */}
             {/* <div className={styles.registerBtnContainer}>
               <a href="/register" className={styles.registerBtn}>
                 <img
                   src="/svgs/landing/registerBtn.svg"
                   alt="Register"
-                  className={styles.registerBtn}
+                  className={styles.desktopRegisterBtn}
                 />
                 <img
                   src="/svgs/landing/mobileRegisterBtn.svg"
@@ -92,29 +78,22 @@ export default function LandingPage() {
               </a>
             </div> */}
 
-            {/* Foreground Container with Tree */}
+            {/* Foreground Tree */}
             <div className={styles.foregroundContainer}>
               <div className={styles.treeContainer}>
                 <div className={styles.tree}>
-                  {/* Desktop Tree */}
                   <img
                     src="/images/landing/tree1.png"
                     alt="Tree"
                     className={styles.treeDesktop}
                   />
-                  {/* Mobile Tree */}
                   <img
                     src="/images/landing/treeMob.png"
                     alt="Tree"
                     className={styles.treeMob}
                   />
-
-                  {/* Social Links Component */}
                   <SocialLinks />
                 </div>
-
-                {/* Tree Extender for Scroll */}
-                {/* <div className={styles.treeExtender}></div> */}
               </div>
             </div>
           </div>
