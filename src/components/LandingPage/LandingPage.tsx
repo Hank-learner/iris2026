@@ -10,6 +10,8 @@ export default function LandingPage() {
   const sponsorsRef = useRef<HTMLDivElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const starsRef = useRef<HTMLDivElement | null>(null);
+
 
   const checkScroll = () => {
   if (!sponsorsRef.current) return;
@@ -153,20 +155,31 @@ IRIS 2026 offers a diverse range of competitions and activities designed to enga
         </div>
       </div>
 
-      {/* Sponsors Section */}
+{/* Sponsors Section */}
 <section className={styles.sponsorsSection}>
   <h2 className={styles.sectionTitle}>ASSOCIATIONS</h2>
 
   <div className={styles.sponsorsCarousel}>
-    {/* Left arrow */}
+    {/* Left Arrow */}
     <button
-  type="button"
-  className={`${styles.sponsorsArrow} ${styles.sponsorsArrowLeft}`}
-  style={{ opacity: canScrollLeft ? 0.85 : 0.15, pointerEvents: canScrollLeft ? "auto" : "none" }}
-  onClick={() => sponsorsRef.current?.scrollBy({ left: -260, behavior: "smooth" })}
->
-  ‹
-</button>
+      type="button"
+      className={`${styles.sponsorsArrow} ${styles.sponsorsArrowLeft}`}
+      onClick={() => {
+        const el = sponsorsRef.current;
+        if (!el) return;
+        const { scrollLeft, clientWidth, scrollWidth } = el;
+        const maxScroll = scrollWidth - clientWidth;
+
+        if (scrollLeft <= 0) {
+          // at start → jump to end
+          el.scrollTo({ left: maxScroll, behavior: "smooth" });
+        } else {
+          el.scrollBy({ left: -260, behavior: "smooth" });
+        }
+      }}
+    >
+      ‹
+    </button>
 
     {/* Scrollable track */}
     <div ref={sponsorsRef} className={styles.sponsorsGrid}>
@@ -227,17 +240,87 @@ IRIS 2026 offers a diverse range of competitions and activities designed to enga
       </div>
     </div>
 
-    {/* Right arrow */}
+    {/* Right Arrow */}
     <button
-  type="button"
-  className={`${styles.sponsorsArrow} ${styles.sponsorsArrowRight}`}
-  style={{ opacity: canScrollRight ? 0.85 : 0.15, pointerEvents: canScrollRight ? "auto" : "none" }}
-  onClick={() => sponsorsRef.current?.scrollBy({ left: 260, behavior: "smooth" })}
->
-  ›
-</button>
+      type="button"
+      className={`${styles.sponsorsArrow} ${styles.sponsorsArrowRight}`}
+      onClick={() => {
+        const el = sponsorsRef.current;
+        if (!el) return;
+        const { scrollLeft, clientWidth, scrollWidth } = el;
+        const maxScroll = scrollWidth - clientWidth;
+
+        if (scrollLeft >= maxScroll - 1) {
+          // at end → jump back to start
+          el.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          el.scrollBy({ left: 260, behavior: "smooth" });
+        }
+      }}
+    >
+      ›
+    </button>
   </div>
 </section>
+
+
+
+{/* Past Stars Section */}
+<section className={styles.pastStarsSection}>
+  <h2 className={styles.sectionTitle}>PAST STARS OF OUR MULTIVERSE</h2>
+
+  {/* Row 1 – Two main posters */}
+  <div className={styles.starsMainRow}>
+    <img src="/images/stars/main1.png" alt="Main Star 1" className={styles.starMainPoster} />
+    <img src="/images/stars/main2.png" alt="Main Star 2" className={styles.starMainPoster} />
+  </div>
+
+  {/* Row 2 – Carousel */}
+  <div className={styles.starsCarouselRow}>
+
+    {/* Left Arrow */}
+    <button
+      type="button"
+      className={`${styles.starsArrow} ${styles.starsArrowLeft}`}
+      onClick={() =>
+        starsRef.current?.scrollBy({ left: -260, behavior: "smooth" })
+      }
+    >
+      ‹
+    </button>
+
+    {/* Posters Track */}
+    <div ref={starsRef} className={styles.starsCarouselTrack}>
+      {[
+        "/images/stars/p1.png",
+        "/images/stars/p2.png",
+        "/images/stars/p3.png",
+        "/images/stars/p4.png",
+        "/images/stars/p5.png",
+        "/images/stars/p6.png",
+        "/images/stars/p7.png",
+        "/images/stars/p8.png",
+      ].map((src, i) => (
+        <div key={i} className={styles.starPosterItem}>
+          <img src={src} alt={`Star Poster ${i + 1}`} />
+        </div>
+      ))}
+    </div>
+
+    {/* Right Arrow */}
+    <button
+      type="button"
+      className={`${styles.starsArrow} ${styles.starsArrowRight}`}
+      onClick={() =>
+        starsRef.current?.scrollBy({ left: 260, behavior: "smooth" })
+      }
+    >
+      ›
+    </button>
+
+  </div>
+</section>
+
 
 
 
