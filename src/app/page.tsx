@@ -3,9 +3,9 @@
 import { useState } from "react";
 // import Preloader from "@/components/Preloader";
 // import EntranceOverlay from "@/components/EntranceOverlay";
-import Navigation from "@/components/Navigation";
+// import Navigation from "@/components/Navigation";
 import LandingPage from "@/components/LandingPage";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 
 export default function Home() {
   // const [loadingComplete, setLoadingComplete] = useState(false);
