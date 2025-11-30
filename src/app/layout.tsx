@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation"; // <-- IMPORTED NAVIGATION
+import Footer from "@/components/Footer"; // <-- IMPORTED Footer
 
 // Load custom Japanese fonts
 const japanRamen = localFont({
@@ -107,6 +108,7 @@ export default function RootLayout({
 				{/* <div id="modal-root"></div> */}
 				{/* <div id="backdrop-root"></div> */}
 				<div id="root">{children}</div>
+				<Footer />
 			</body></html>
 	)
 }

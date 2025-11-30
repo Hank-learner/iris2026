@@ -5,6 +5,7 @@ import { useState } from "react";
 // import EntranceOverlay from "@/components/EntranceOverlay";
 import Navigation from "@/components/Navigation";
 import LandingPage from "@/components/LandingPage";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   // const [loadingComplete, setLoadingComplete] = useState(false);
@@ -25,11 +26,10 @@ export default function Home() {
       {/* Main Content - Shows after entering */}
       {hasEntered && (
         <>
-          {/* Navigation - Always visible once entered */}
-          <Navigation />
 
           {/* Landing Page Content */}
           <LandingPage />
+
         </>
       )}
     </>
