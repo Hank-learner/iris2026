@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Navigation.module.css";
-import SocialLinks from "../LandingPage/SocialLinks";
+// import SocialLinks from "../LandingPage/SocialLinks";
 
 export default function Navigation() {
   // Desktop detection
@@ -25,6 +25,7 @@ export default function Navigation() {
     { href: "/", label: "Home" },
     { href: "/events", label: "Events" },
     { href: "/gallery", label: "Gallery" },
+    { href: "/team", label: "Team" },
   ];
 
   return (
@@ -90,12 +91,10 @@ export default function Navigation() {
               </div>
 
               {/* Footer */}
-              <div className={styles.mwd}>Made with Love by Dept. of Visual Media</div>
-
-              {/* Social Links - Mobile Only - Bottom of Menu */}
-              <div className={styles.sidebarSocial}>
-                <SocialLinks />
+              <div className={styles.mwd}>
+                Made with <img src="/icons/love.png" alt="love" className={styles.loveIcon} /> by S&IT, IRIS
               </div>
+
             </aside>
           </div>
 
