@@ -107,26 +107,10 @@ export default function LandingPage() {
         <div className={styles.bottomOverlay}></div>
         <div className={styles.aboutUsContainer}>
           <div className={styles.aboutUsWrapper}>
-            <h2
-              style={{
-                fontFamily: "var(--font-japan-ramen)",
-                fontSize: "3rem",
-                textAlign: "center",
-                color: "#f2dd7c",
-              }}
-            >
+            <h2 className={styles.aboutUsTitle}>
               About IRIS
             </h2>
-            <p
-              style={{
-                fontFamily: "Abhaya Libre",
-                fontSize: "1.2rem",
-                textAlign: "center",
-                maxWidth: "800px",
-                margin: "2rem auto",
-                lineHeight: "1.8",
-              }}
-            >
+            <p className={styles.aboutUsText}>
               IIM Indore is set to host IRIS 2026, its annual cultural and management festival, in the month of Jan, 2026. Recognized as one of Central India's premier B-school fests, IRIS attracts over 40,000 participants from across the country, blending intellectual challenges, creative showcases, and industry insights into a dynamic three-day event.
               IRIS 2026 offers a diverse range of competitions and activities designed to engage students across disciplines. Business enthusiasts can put their strategic acumen to the test in various case study challenges and entrepreneurship contests, while creative minds can participate in cultural events spanning fashion, dance, music, and quizzing.
             </p>
@@ -234,7 +218,119 @@ export default function LandingPage() {
         </div>
       </section>
 
-      
+      {/* Footer Section */}
+      <footer style={{
+        background: '#7a232b',
+        color: '#fff',
+        padding: '2.5rem 1rem 1rem 1rem',
+        fontFamily: 'Abhaya Libre, sans-serif',
+        // marginTop: '2rem',
+      }}>
+        <div style={{
+          maxWidth: '1400px',
+          margin: '0 auto',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          gap: '2.5rem',
+        }}>
+          {/* Contact Columns */}
+          <div style={{ flex: '2 1 350px', minWidth: 0 }}>
+            <h3 style={{ fontWeight: 700, fontSize: '1.3rem', marginBottom: '1.2rem', letterSpacing: '1px' }}>Contact Us</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.5rem' }}>
+              {/* Overall Coordinators */}
+              <div style={{ minWidth: 180, flex: '1 1 180px' }}>
+                <div style={{ fontWeight: 600, marginBottom: 8, letterSpacing: 1 }}>OVERALL COORDINATORS</div>
+                <div style={{ marginBottom: 18 }}>
+                  <div>Shubham Sharma</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24shubhams@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 7385552034</div>
+                </div>
+                <div>
+                  <div>Nawang</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24nawangb@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 9911995537</div>
+                </div>
+              </div>
+              {/* Corporate Relations */}
+              <div style={{ minWidth: 180, flex: '1 1 180px' }}>
+                <div style={{ fontWeight: 600, marginBottom: 8, letterSpacing: 1 }}>CORPORATE RELATIONS</div>
+                <div style={{ marginBottom: 18 }}>
+                  <div>Anirudh Kumar</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24anirudhk@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 9559085353</div>
+                </div>
+                <div>
+                  <div>Prachi Ekhar</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24prachim@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 9359231527</div>
+                </div>
+              </div>
+              {/* Participation */}
+              <div style={{ minWidth: 180, flex: '1 1 180px' }}>
+                <div style={{ fontWeight: 600, marginBottom: 8, letterSpacing: 1 }}>PARTICIPATION</div>
+                <div style={{ marginBottom: 18 }}>
+                  <div>Sahil Telrandhe</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24sahilt@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 9168369998</div>
+                </div>
+                <div style={{ marginBottom: 18 }}>
+                  <div>Vibhu Sharma</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24vibhus@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 6306179572</div>
+                </div>
+                <div>
+                  <div>Anushka Vani</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>p24anushkav@iimidr.ac.in</div>
+                  <div style={{ fontSize: '0.98em', opacity: 0.9 }}>+91 7608000795</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Social & Email */}
+          <div style={{ flex: '1 1 250px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'flex-start' }}>
+            <div>
+              <div style={{ fontWeight: 600, marginBottom: 12, letterSpacing: 1 }}>Follow</div>
+              <div style={{ transform: 'scale(0.7)', transformOrigin: 'left top' }}>
+                <SocialLinks />
+              </div>
+            </div>
+            <div>
+              <div style={{ fontWeight: 600, marginBottom: 8, letterSpacing: 1 }}>Email</div>
+              <div style={{ fontSize: '1.05em', opacity: 0.9 }}>iris@iimidr.ac.in</div>
+            </div>
+            <div>
+              <div style={{ fontWeight: 700, marginBottom: 4 }}>Have any questions?</div>
+              <a href="#" style={{ color: '#fff', textDecoration: 'underline', fontWeight: 500 }}>Ask Us Here</a>
+            </div>
+          </div>
+        </div>
+        {/* Copyright */}
+        <div style={{
+          textAlign: 'center',
+          marginTop: '2.5rem',
+          fontSize: '1.05em',
+          color: '#fff',
+          opacity: 0.95,
+          letterSpacing: 0.2,
+        }}>
+          © IRIS 2026. All Rights Reserved. Made by Systems & Analytics team, IRIS
+        </div>
+        {/* Responsive Styles */}
+        <style>{`
+            @media (max-width: 900px) {
+              footer > div { flex-direction: column; gap: 2.5rem; }
+              footer > div > div { width: 100% !important; min-width: 0 !important; }
+            }
+            @media (max-width: 600px) {
+              footer { padding: 2rem 0.5rem 1rem 0.5rem !important; }
+              footer > div { gap: 1.5rem; }
+              footer h3 { font-size: 1.1rem !important; }
+              footer div[style*='font-weight: 600'] { font-size: 1em !important; }
+              footer div[style*='font-size: 1.05em'] { font-size: 0.98em !important; }
+            }
+          `}</style>
+      </footer>
 
     </div>
   );
