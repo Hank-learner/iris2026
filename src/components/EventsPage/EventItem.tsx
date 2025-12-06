@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./EventItem.module.css";
 import type { Event } from "./EventsPage";
 
@@ -8,23 +9,31 @@ interface EventItemProps {
 }
 
 export default function EventItem({ event }: EventItemProps) {
+  const [imgSrc, setImgSrc] = useState(
+    event.image || "/images/events/default-event.png"
+  );
+
   const handleRegisterClick = () => {
     if (event.link) {
       window.open(event.link, "_blank", "noopener,noreferrer");
     }
   };
 
-  const imageSrc = event.image || "/images/events/default-event.png";
+  const handleImageError = () => {
+    setImgSrc("/images/events/default-event.png");
+  };
 
   return (
     <div className={styles.eventCard}>
-      <img
-        src={imageSrc}
-        alt={event.title}
-        className={styles.eventImage}
-      />
+      <div className={styles.imageWrapper}>
+        <img
+          src={imgSrc}
+          alt={event.title}
+          className={styles.eventImage}
+          onError={handleImageError}
+        />
+      </div>
 
-      {/* Button ON the image at bottom center */}
       <button
         type="button"
         className={styles.registerButton}

@@ -1,80 +1,69 @@
-/* Card wrapper */
+/* Outer card – NO background panel, only image + button */
 .eventCard {
   position: relative;
   width: 100%;
-  max-width: 280px;
+  max-width: 360px;
   margin: 0 auto;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;           /* space between image and button */
 }
 
-/* Poster image (fully visible) */
+/* Wrapper around the poster – gives nice radius + shadow */
+.imageWrapper {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Poster image */
 .eventImage {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Button ON IMAGE — bottom center */
-/* Card wrapper */
-.eventCard {
-  position: relative;
-  width: 100%;
-  max-width: 280px;       /* compact card */
-  margin: 0 auto;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-}
-
-/* Poster image - full visibility */
-.eventImage {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Button ON IMAGE — bottom center */
+/* Single Register button (desktop + mobile) */
 .registerButton {
-  position: absolute;
-  left: 50%;
-  bottom: 4px;          /* LOWERED button */
-  transform: translateX(-50%);
-
-  padding: 6px 14px;
   border: none;
   outline: none;
   border-radius: 999px;
-
-  background: #f97316;    /* warm orange */
+  padding: 7px 22px;
+  background: #f97316;
   color: #ffffff;
-
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   cursor: pointer;
-
-  opacity: 0.95;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  margin-bottom: 0.4rem;
 }
 
-.registerButton:hover {
-  opacity: 1;
+.registerButton:hover,
+.registerButton:focus-visible {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
 }
 
-/* Mobile responsive */
-@media (max-width: 600px) {
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 768px) {
   .eventCard {
-    max-width: 240px;
+    max-width: 100%;
+    gap: 0.5rem;       /* slightly tighter on mobile */
+  }
+
+  .imageWrapper {
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
   }
 
   .registerButton {
-    bottom: 8px;         /* slightly lower on mobile */
-    font-size: 0.7rem;
-    padding: 5px 12px;
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    margin-bottom: 0.5rem;
   }
 }
