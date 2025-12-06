@@ -3,11 +3,17 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Navigation.module.css";
-// import SocialLinks from "../LandingPage/SocialLinks";
+
+// Define a type for the link structure for better type safety
+interface NavLink {
+  href: string;
+  label: string;
+  newTab?: boolean; // Optional property to indicate opening in a new tab
+}
 
 export default function Navigation() {
-  // Desktop detection
   const [isDesktop, setIsDesktop] = useState<boolean>(true);
+
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 769);
     check();
@@ -15,27 +21,34 @@ export default function Navigation() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // Mobile sidebar
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   const closeSidebar = () => setSidebarOpen(false);
 
-  // Shared links – text only
-  const navLinks = [
+  // UPDATED: Added newTab: true for the Brochure link
+  const navLinks: NavLink[] = [
     { href: "/", label: "Home" },
     { href: "/events", label: "Events" },
     { href: "/gallery", label: "Gallery" },
     { href: "/team", label: "Team" },
+    { href: "/brochure/iris-brochure.pdf", label: "Brochure", newTab: true },
   ];
 
   return (
     <>
-      {/* ===================== DESKTOP HEADER – Transparent + Text Only ===================== */}
+      {/* Desktop Navbar */}
       {isDesktop && (
         <header className={styles.desktopHeader}>
           <nav className={styles.desktopNav}>
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={styles.desktopLink}>
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.desktopLink}
+                // LOGIC ADDED: Apply target and rel attributes conditionally
+                target={link.newTab ? "_blank" : "_self"}
+                rel={link.newTab ? "noopener noreferrer" : undefined}
+              >
                 {link.label}
               </Link>
             ))}
@@ -43,10 +56,9 @@ export default function Navigation() {
         </header>
       )}
 
-      {/* ===================== MOBILE HAMBURGER + ANIMATED SIDEBAR (No Icons) ===================== */}
+      {/* Mobile View */}
       {!isDesktop && (
         <>
-          {/* Hamburger Button – fades out when open */}
           <nav className={`${styles.nav} ${sidebarOpen ? styles.hideHamburger : ""}`}>
             <button
               className={styles.hamMenuBtn}
@@ -57,16 +69,10 @@ export default function Navigation() {
             </button>
           </nav>
 
-          {/* Sidebar with Slide-in + Stagger Animation */}
-          <div
-            className={`${styles.sidebarContainer} ${sidebarOpen ? styles.sidebarOpen : ""}`}
-          >
-            {/* Dark overlay */}
+          <div className={`${styles.sidebarContainer} ${sidebarOpen ? styles.sidebarOpen : ""}`}>
             <div className={styles.sidebarOverlay} onClick={closeSidebar} />
 
-            {/* Sidebar Panel */}
             <aside className={styles.sidebar}>
-              {/* Close Button (X) */}
               <button
                 className={styles.sidebarClose}
                 onClick={closeSidebar}
@@ -75,7 +81,6 @@ export default function Navigation() {
                 <img src="/svgs/landing/hamX.svg" alt="Close" className={styles.hamX} />
               </button>
 
-              {/* Navigation Items – TEXT ONLY */}
               <div className={styles.sidebarNav}>
                 {navLinks.map((link, idx) => (
                   <Link
@@ -83,6 +88,9 @@ export default function Navigation() {
                     href={link.href}
                     className={styles.sidebarItem}
                     onClick={closeSidebar}
+                    // LOGIC ADDED: Apply target and rel attributes conditionally
+                    target={link.newTab ? "_blank" : "_self"}
+                    rel={link.newTab ? "noopener noreferrer" : undefined}
                     style={{ "--i": idx + 1 } as React.CSSProperties}
                   >
                     {link.label}
@@ -90,15 +98,12 @@ export default function Navigation() {
                 ))}
               </div>
 
-              {/* Footer */}
               <div className={styles.mwd}>
                 Made with <img src="/icons/love.png" alt="love" className={styles.loveIcon} /> by S&IT, IRIS
               </div>
-
             </aside>
           </div>
 
-          {/* Background blur */}
           <div className={`${styles.wrapper} ${sidebarOpen ? styles.mask : ""}`} />
         </>
       )}
