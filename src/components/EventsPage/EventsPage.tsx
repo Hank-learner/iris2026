@@ -180,7 +180,7 @@ const eventsData: Event[] = [
   {
     id: "22",
     title: "Asian Parliamentary Debate",
-    category: "Management",
+    category: "Cultural",
     link: "https://unstop.com/events/asian-parliamentary-debate-iris-2026-iim-indores-flagship-fest-iim-indore-1602528",
     image: "/images/events/asian-parli.png",
   },
@@ -326,12 +326,8 @@ const eventsData: Event[] = [
     title: "Awaaz: The Nukkad Natak Competition",
     category: "Cultural",
     link: "https://unstop.com/events/awaaz-the-nukkad-natak-competition-iris-2026-iim-indores-flagship-fest-iim-indore-1605992",
-  },
-  {
-    id: "42",
-    title: "Awaaz: The Nukkad Natak Competition",
-    category: "Cultural",
-    link: "https://unstop.com/events/awaaz-the-nukkad-natak-competition-iris-2026-iim-indores-flagship-fest-iim-indore-1605992",
+    image: "/images/events/nukkad-natak.png",
+
   },
 ];
 
