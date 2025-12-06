@@ -5,8 +5,10 @@
 .title {
   text-align: center;
   font-size: 1.8rem;
-  margin-bottom: 3rem;
   letter-spacing: 1px;
+
+  margin-top: 2rem;     /* ✅ pushes "Overall Coordinators" down */
+  margin-bottom: 3rem;
 }
 
 .grid {
@@ -16,19 +18,16 @@
   justify-items: center;
 }
 
-/* Only apply special centering when .centerLastTwo is present.
-   This avoids affecting other grids (like the 2-column Overall Coordinators). */
+/* Center last two items when 4 columns */
 .centerLastTwo > :nth-last-child(2) {
-  /* place the second-last item into column 2 (1-based) */
   grid-column: 2;
 }
 
 .centerLastTwo > :last-child {
-  /* place the last item into column 3 (1-based) */
   grid-column: 3;
 }
 
-/* Tablet: fallback to 2 columns, clear manual placement */
+/* Tablet */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -40,7 +39,7 @@
   }
 }
 
-/* Mobile: single column, normal flow */
+/* Mobile */
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
