@@ -152,7 +152,7 @@ useEffect(() => {
         {/* Logo + Timer - Position Preserved */}
         <div className={styles.logoContainer}>
           <img
-            src="/images/landing/white_logo.png"
+            src="/images/landing/irislogo.png"
             alt="OASIS 2025"
             className={styles.logo}
           />
